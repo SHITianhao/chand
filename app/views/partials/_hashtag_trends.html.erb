@@ -4,9 +4,9 @@
     <div class="row">
         <div class="col-lg-12">
             <% @trends.each do |trend| %>
-                <a href="#" >
+                <a href="hastags/<%=trend.hashtag_text%>" >
                     <span class="hashtag_trends_link">#<%= trend.hashtag_text %></span>
-                    <div class="hashtag_trends_number"><%= trend.total_number %> Tweets</div>
+                    <div class="hashtag_trends_number"><%= trend.total_number %> tweets</div>
                 </a>
             <% end %>
         </div>
