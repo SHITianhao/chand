@@ -6,7 +6,9 @@
   };
 
   Card.prototype.init = function(element, cover_pics, options) {
-    if(cover_pics.length == 1) {
+    if(cover_pics.length == 0) {
+      $(element).css('background-color', '#5a9ef1');
+    } else if(cover_pics.length == 1) {
       $(element).backstretch(cover_pics);
     } else {
       $(element).backstretch(cover_pics, options);
