@@ -1,6 +1,10 @@
+<!-- Here is index html erb -->
 <div class="row">
   <div class="col-lg-3">
     <%= render 'partials/user_info', view_type: 'home', user: current_user %>
+    <div class="well hastag_trends">
+        <%= render 'partials/hashtag_trends' %>
+    </div>
   </div>
   <div class="col-lg-6">
     <div class="row">

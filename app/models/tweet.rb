@@ -7,6 +7,7 @@ class Tweet < ActiveRecord::Base
   has_many :replies, class_name: "Tweet", foreign_key: "parent_id"
   has_many :favorites
   has_many :retweets, foreign_key: "source_tweet_id"
+  has_many :hashtags
   validates :tweet_text, presence: true, length: { maximum: 140 }
 
   counter_culture :user

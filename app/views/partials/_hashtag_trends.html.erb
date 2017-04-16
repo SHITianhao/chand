@@ -1,0 +1,15 @@
+<!-- Here is hashtag html erb -->
+<div class="card">
+    <h4>Trends</h4>
+    <div class="row">
+        <div class="col-lg-12">
+            <% @trends.each do |trend| %>
+                <a>
+                    <span><%= trend.hashtag_text %></span>
+                    <div class="hastag_trends_number"><%= trend.total_number %> Tweets</div>
+                </a>
+            <% end %>
+            
+        </div>
+    </div>
+</div>
