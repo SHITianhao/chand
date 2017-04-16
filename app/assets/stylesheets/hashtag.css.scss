@@ -3,6 +3,25 @@
     margin-top: 20px;
 }
 
-.hastag_trends_number {
+.hashtag_trends_number {
     color: #657786;
+}
+
+.hashtag_trends_number:hover {
+    text-decoration: none;
+}
+
+.hashtag_trends_link:hover {
+    text-decoration: underline;
+}
+
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
 }
