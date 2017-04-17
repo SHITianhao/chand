@@ -4,6 +4,7 @@ class CreateTweets < ActiveRecord::Migration
       t.string :tweet_text, limit: 140
       t.string :location
       t.references :user, index: true
+      t.references :hashtags, index: true
 
       t.timestamps
     end

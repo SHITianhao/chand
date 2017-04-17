@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170416043817) do
+ActiveRecord::Schema.define(version: 20170417052635) do
 
   create_table "favorites", force: true do |t|
     t.integer  "tweet_id"
@@ -43,6 +43,13 @@ ActiveRecord::Schema.define(version: 20170416043817) do
     t.datetime "updated_at"
   end
 
+  create_table "hashtags_tweets", force: true do |t|
+    t.integer  "tweet_id"
+    t.integer  "hashtag_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "relationships", force: true do |t|
     t.integer  "user_id"
     t.integer  "friend_id"
@@ -60,15 +67,17 @@ ActiveRecord::Schema.define(version: 20170416043817) do
   add_index "retweets", ["source_tweet_id", "retweeter_id"], name: "index_retweets_on_source_tweet_id_and_retweeter_id"
 
   create_table "tweets", force: true do |t|
-    t.string   "tweet_text", limit: 140
+    t.string   "tweet_text",  limit: 140
     t.string   "location"
     t.integer  "user_id"
+    t.integer  "hashtags_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "parent_id"
     t.string   "media"
   end
 
+  add_index "tweets", ["hashtags_id"], name: "index_tweets_on_hashtags_id"
   add_index "tweets", ["user_id"], name: "index_tweets_on_user_id"
 
   create_table "users", force: true do |t|

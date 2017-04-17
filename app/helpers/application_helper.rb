@@ -3,7 +3,8 @@ module ApplicationHelper
   def parse(content)
     #content.gsub(/(?:^|\W)@(\w+)/, link_to(" @#{'\1'}", '/users/\1'))
     content = content.gsub(/(?:\s|^)(?:#(?!\d+(?:\s|$)))(\w+)(?=\s|$)/i) do |match|
-      link_to(match, '#', class: 'hashtags')
+      tag = match.gsub('#', '').gsub(' ', '');
+      link_to(match, '/hashtags/'+tag, class: 'hashtags')
     end
 
     content.gsub(/(?:^|\W)@(\w+)/) do |match|

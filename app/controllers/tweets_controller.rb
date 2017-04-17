@@ -7,6 +7,7 @@ class TweetsController < ApplicationController
       tweet.user = current_user
       tweet.parent_id = params[:parent_id]
       create_hashtags(tweet)
+      logger.debug "############# #{tweet.hashtags.size} ##########"
     end
     respond_to do |format|
       format.js
@@ -45,27 +46,34 @@ class TweetsController < ApplicationController
 
   private
   def create_hashtags(tweet)
-    HashtagHelper.get_hashtags(tweet.tweet_text).each do |hashtag|
+    get_hashtags(tweet.tweet_text).each do |hashtag|
       found_hashtag = Hashtag.find_by_hashtag_text(hashtag)
       if found_hashtag
         total_number = found_hashtag.total_number + 1
         found_hashtag.update(total_number:total_number)
       else
-        new_hashtag = Hashtag.new({hashtag_text:hashtag, total_number:1})
-        new_hashtag.save
+        found_hashtag = Hashtag.new({hashtag_text:hashtag, total_number:1})
+        found_hashtag.save
       end
+      tweet.hashtags<<found_hashtag
+      logger.debug "############# #{tweet.hashtags.size} ##########"
     end
   end
 
   private 
   def destroy_hashtags(tweet)
-    HashtagHelper.get_hashtags(tweet.tweet_text).each do |hashtag|
+    get_hashtags(tweet.tweet_text).each do |hashtag|
       found_hashtag = Hashtag.find_by_hashtag_text(hashtag)
       if found_hashtag
         total_number = found_hashtag.total_number - 1
         found_hashtag.update(total_number:total_number);
       end
     end
+  end
+
+  private 
+  def get_hashtags(text)
+    return text.scan(/(?:\s|^)(?:#(?!\d+(?:\s|$)))(\w+)(?=\s|$)/i).flatten
   end
 
 end

@@ -1,0 +1,13 @@
+<!-- Here is hashtag list html erb -->
+<div class="card">
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="feed" class="well feed">
+                <%= render(@tweets) || "No Tweets" %>
+            </div>
+            <div id="load-more">
+                <%= render 'partials/load_more', items: @tweets %>
+            </div>
+        </div>
+    </div>
+</div>
