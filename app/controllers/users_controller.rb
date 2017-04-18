@@ -6,6 +6,9 @@ class UsersController < ApplicationController
 
   def show
     @tweets = @user.tweets.paginate(page: params[:page]).order('created_at DESC')
+    @tweets_with_media = @user.tweets.where('media IS NOT NULL')
+                              .order('created_at DESC')
+                              .first(4)
     respond_to do |format|
       format.js
       format.html
