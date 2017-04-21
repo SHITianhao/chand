@@ -55,6 +55,13 @@ class UsersController < ApplicationController
       format.html
     end
   end
+  def notifications
+  @notifications = Notifications.where(:touser => '@'+@user.username)
+    respond_to do |format|
+      format.js
+      format.html
+    end
+  end
 
   private
   def user_params

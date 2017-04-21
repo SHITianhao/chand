@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170416043817) do
+ActiveRecord::Schema.define(version: 20170420005833) do
 
   create_table "favorites", force: true do |t|
     t.integer  "tweet_id"
@@ -39,6 +39,24 @@ ActiveRecord::Schema.define(version: 20170416043817) do
   create_table "hashtags", force: true do |t|
     t.string   "hashtag_text"
     t.integer  "total_number", default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notifications", force: true do |t|
+    t.string   "username"
+    t.text     "text"
+    t.string   "touser"
+    t.string   "msgtype"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notifocations", force: true do |t|
+    t.string   "username"
+    t.string   "text"
+    t.string   "fromuser"
+    t.string   "msgtype"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

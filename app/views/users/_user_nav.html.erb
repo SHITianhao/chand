@@ -8,7 +8,7 @@
               <%= link_to "Tweets", user_path(@user) %>
             </li>
             <li class="<%= view_type=='following' ? 'active' : ''%>">
-              <%= link_to "Following", following_user_path(@user) %>
+              <%= link_to "Followings", following_user_path(@user) %>
             </li>
             <li class="<%= view_type=='followers' ? 'active' : ''%>">
               <%= link_to "Followers", followers_user_path(@user) %>

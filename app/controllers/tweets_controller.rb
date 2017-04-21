@@ -3,6 +3,9 @@ class TweetsController < ApplicationController
   before_action :authenticate_user!
 
   def create
+    @tweettemp = Tweet.new(tweet_params)
+    @notifications = Notifications.new(username:current_user.username,text: @tweettemp.tweet_text,touser:get_tagged_user(@tweettemp), msgtype:'tweet')
+    @notifications.save
     @tweet = Tweet.new(tweet_params) do |tweet|
       tweet.user = current_user
       tweet.parent_id = params[:parent_id]
@@ -56,5 +59,10 @@ class TweetsController < ApplicationController
     end
     
   end
+ 
+  def get_tagged_user(tweet)
+     tweet.tweet_text.match(/@(\w+)/).to_s
+  end
+    
 
 end

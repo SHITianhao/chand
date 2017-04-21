@@ -1,7 +1,7 @@
-$('#feed').append("<%= j render @following %>");
+$('#feed').append("<%= j render @tweets %>");
 
-<% if @following.next_page %>
-  $(".pagination").replaceWith("<%= j will_paginate(@following) %>");
+<% if @tweets.next_page %>
+  $(".pagination").replaceWith("<%= j will_paginate(@tweets) %>");
   $(".pagination").hide();
 <% else %>
   $(window).off('scroll');
