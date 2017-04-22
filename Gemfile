@@ -43,7 +43,7 @@ end
 group :production do
   gem 'pg'
   gem 'unicorn'
-  gem "fog-aws"
+  gem 'fog-aws'
 end
 
 gem 'devise'
