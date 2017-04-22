@@ -43,7 +43,7 @@ end
 group :production do
   gem 'pg'
   gem 'unicorn'
-  gem 'letter_opener'
+  # gem 'letter_opener'
 end
 
 gem 'devise'
