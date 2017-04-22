@@ -76,19 +76,20 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   
-  config.action_mailer.default_url_options = { :host => "http://twitter-clone-rails.herokuapp.com/" }
+  config.action_mailer.default_url_options = { :host => "https://chand4itu.herokuapp.com" }
 
-  ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.perform_deliveries = true
+  # ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.delivery_method = :letter_opener
+  # ActionMailer::Base.perform_deliveries = true
 
-  ActionMailer::Base.smtp_settings = {
-    :address              => "smtp.sendgrid.net",
-    :port                 => "587",
-    :domain               => "heroku.com",
-    :user_name            => ENV["USERNAME"],
-    :password             => ENV["PASSWORD"],
-    :authentication       => "plain",
-    :enable_starttls_auto => true  
-  }
+  # ActionMailer::Base.smtp_settings = {
+  #   :address              => "smtp.sendgrid.net",
+  #   :port                 => "587",
+  #   :domain               => "heroku.com",
+  #   :user_name            => ENV["USERNAME"],
+  #   :password             => ENV["PASSWORD"],
+  #   :authentication       => "plain",
+  #   :enable_starttls_auto => true  
+  # }
 
 end

@@ -43,6 +43,13 @@ ActiveRecord::Schema.define(version: 20170420005833) do
     t.datetime "updated_at"
   end
 
+  create_table "hashtags_tweets", force: true do |t|
+    t.integer  "tweet_id"
+    t.integer  "hashtag_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "notifications", force: true do |t|
     t.string   "username"
     t.text     "text"
@@ -57,10 +64,6 @@ ActiveRecord::Schema.define(version: 20170420005833) do
     t.string   "text"
     t.string   "fromuser"
     t.string   "msgtype"
-  end
-  create_table "hashtags_tweets", force: true do |t|
-    t.integer  "tweet_id"
-    t.integer  "hashtag_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
