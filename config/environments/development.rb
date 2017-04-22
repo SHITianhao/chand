@@ -32,23 +32,23 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
-  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  # config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.delivery_method = :letter_opener
 
     
-  config.action_mailer.default_url_options = { :host => "https://chand4itu.herokuapp.com" }
+  # config.action_mailer.default_url_options = { :host => "https://chand4itu.herokuapp.com" }
 
-  ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.perform_deliveries = true
+  # ActionMailer::Base.delivery_method = :smtp
+  # ActionMailer::Base.perform_deliveries = true
 
-  ActionMailer::Base.smtp_settings = {
-    :address              => "smtp.gmail.com",
-    :port                 => "587",
-    :user_name            => ENV["EMAIL_USER_NAME"],
-    :password             => ENV["EMAIL_PASSWORD"],
-    :authentication       => "plain",
-    :enable_starttls_auto => true  
-  }
+  # ActionMailer::Base.smtp_settings = {
+  #   :address              => "smtp.gmail.com",
+  #   :port                 => "587",
+  #   :user_name            => ENV["EMAIL_USER_NAME"],
+  #   :password             => ENV["EMAIL_PASSWORD"],
+  #   :authentication       => "plain",
+  #   :enable_starttls_auto => true  
+  # }
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
