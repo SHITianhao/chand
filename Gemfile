@@ -27,9 +27,7 @@ end
 
 
 group :development, :test do
-  # gem 'sqlite3'
-  # Heroku requies using postgresql
-  gem 'pg'
+  gem 'sqlite3'
   gem 'factory_girl_rails'
   gem 'rspec-rails', '~> 3.0.0.beta'
   gem 'rspec', '~> 3.0.0.beta2'
