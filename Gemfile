@@ -47,7 +47,7 @@ group :production do
 end
 
 gem 'devise'
-gem 'carrierwave'
+gem 'carrierwave', '~> 0.11.0'
 gem 'friendly_id', '~> 5.0.0'
 
 gem 'will_paginate', '~> 3.0.6'
