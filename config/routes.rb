@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
- 
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
@@ -35,6 +34,8 @@ Rails.application.routes.draw do
   resources :find_friends, only: :index
   
   resources :notifications, only: [:create, :index]
+
+  get 'hashtags/:tag' => 'hashtags#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

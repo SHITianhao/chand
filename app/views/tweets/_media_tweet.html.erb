@@ -1,0 +1,9 @@
+<div id="tweet-<%= tweet.id %>" class="micropost">
+  <div class="content">
+    <div class="post-content">
+      <div class="media">
+        <%= image_tag tweet.media_url, style: "width: 200px; margin-top: 10px;" if tweet.media? %>
+      </div>
+    </div>
+  </div>
+</div>

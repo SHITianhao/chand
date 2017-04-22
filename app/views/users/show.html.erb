@@ -17,6 +17,25 @@
     </div>
   </div>
   <div class="col-lg-3">
-    <div class="well"></div>
+    <div class="well">
+      <h3>Latest Media Tweets</h3>
+      <div class="container">
+        <% if @tweets_with_media.nil? || !@tweets_with_media.any? %>
+            <div class="row">
+              <div class="col-lg-12">
+                <h4>No Media Tweets.</h4>
+              </div>
+            </div>
+        <% else %>
+            <% @tweets_with_media.each do |media_tweet| %>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <%= render('tweets/media_tweet', tweet: media_tweet) %>
+                  </div>
+                </div>
+            <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

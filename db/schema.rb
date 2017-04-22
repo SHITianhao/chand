@@ -57,6 +57,10 @@ ActiveRecord::Schema.define(version: 20170420005833) do
     t.string   "text"
     t.string   "fromuser"
     t.string   "msgtype"
+  end
+  create_table "hashtags_tweets", force: true do |t|
+    t.integer  "tweet_id"
+    t.integer  "hashtag_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -78,15 +82,17 @@ ActiveRecord::Schema.define(version: 20170420005833) do
   add_index "retweets", ["source_tweet_id", "retweeter_id"], name: "index_retweets_on_source_tweet_id_and_retweeter_id"
 
   create_table "tweets", force: true do |t|
-    t.string   "tweet_text", limit: 140
+    t.string   "tweet_text",  limit: 140
     t.string   "location"
     t.integer  "user_id"
+    t.integer  "hashtags_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "parent_id"
     t.string   "media"
   end
 
+  add_index "tweets", ["hashtags_id"], name: "index_tweets_on_hashtags_id"
   add_index "tweets", ["user_id"], name: "index_tweets_on_user_id"
 
   create_table "users", force: true do |t|
